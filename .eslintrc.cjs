@@ -4,13 +4,14 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'plugin:astro/recommended',
-    'plugin:react/recommended',
     'standard-with-typescript'
   ],
   overrides: [
     {
       files: ['*.astro'],
+      extends: [
+        'plugin:astro/recommended'
+      ],
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -19,6 +20,12 @@ module.exports = {
       rules: {
         //
       }
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      extends: [
+        'plugin:react/recommended'
+      ]
     }
   ],
   parserOptions: {
